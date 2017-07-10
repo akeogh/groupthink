@@ -1,5 +1,6 @@
 var express = require('express');
 var surveyRouter = express.Router();
+var Survey = require(__dirname + '/../models/survey');
 
 var placeholder = require(__dirname + "/../lib/req-helper").placeholderMsg;
 

@@ -1,12 +1,16 @@
 var express = require('express');
 var userRouter = express.Router();
+var User = require(__dirname + '/../models/user');
 var placeholder = require(__dirname + "/../lib/req-helper").placeholderMsg;
 
 var routerMessage = 'This User Router endpoint not written yet';
 
 // Get a user's information. Auth optional.
-userRouter.get('/', placeholder, function(req, res) {
-
+userRouter.get('/', function(req, res) {
+  User.find(function(err, users) {
+    if (err) { res.send(err) }
+    res.json(users);
+  });
 });
 
 userRouter.post('/', placeholder, function() {
